@@ -1,0 +1,67 @@
+/* GDScript-like light theme for Hugo/Chroma
+   Palette:
+   - background: #fbfbfb
+   - text: #222222
+   - keywords: #7b5cff (purple)
+   - functions/names: #0b84ff (blue)
+   - strings: #1a9b5a (green)
+   - numbers: #b36b00 (amber)
+   - comments: #8a8a8a (muted gray)
+   - punctuation/ops: #444444
+*/
+
+.chroma {
+  background: #fbfbfb;
+  color: #222222;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Make sure pre elements with chroma class also get the background */
+pre.chroma, pre.highlight, .chroma pre {
+  background: transparent;
+  padding: 0;
+}
+
+.chroma .c, .chroma .c1, .chroma .cm, .chroma .cl, .chroma .cp, .chroma .cpf { color: #8a8a8a; font-style: italic; } /* comments */
+.chroma .k, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr, .chroma .kt, .chroma .ktb { color: #7b5cff; font-weight: 600; } /* keywords */
+.chroma .nc, .chroma .no, .chroma .na, .chroma .nb { color: #0b84ff; } /* classes, constants, names */
+.chroma .nf, .chroma .fm { color: #0b84ff; font-weight: 600; } /* function names */
+.chroma .s, .chroma .sb, .chroma .sc, .chroma .sd, .chroma .s2, .chroma .se, .chroma .sh { color: #1a9b5a; } /* strings */
+.chroma .m, .chroma .mi, .chroma .mf, .chroma .mh, .chroma .mo, .chroma .mb { color: #b36b00; } /* numbers */
+.chroma .p, .chroma .o { color: #444444; } /* punctuation / operators */
+
+/* Builtins and specific tokens observed in output */
+.chroma .bp { color: #0b84ff; font-weight: 600; } /* builtins / pseudo-keywords */
+.chroma .err { background: #ffecec; color: #b00000; } /* errors */
+
+/* Generic catch-all for token classes starting with these letters to improve coverage */
+
+.chroma .err { background: #ffecec; color: #b00000; } /* errors */
+.chroma .gp, .chroma .ge { color: #666666; } /* generic prompts/emdash */
+
+/* Line numbers (if Hugo/Chroma emits them) */
+.chroma .linenos {
+  color: #9b9b9b;
+  padding-right: 0.75rem;
+  border-right: 1px solid rgba(0,0,0,0.04);
+  margin-right: 0.75rem;
+}
+.chroma .linenos td { color: #9b9b9b; }
+
+/* Make links inside code inherit readable color */
+.chroma a { color: inherit; text-decoration: underline; }
+
+/* Ensure inline code in prose matches palette */
+code, pre code { background: rgba(27,31,35,0.03); color: #222222; padding: 0.15rem 0.35rem; border-radius: 4px; }
+
+/* Slight box shadow to separate code blocks */
+.chroma { box-shadow: 0 6px 20px rgba(16,24,40,0.04); }
+
+/* Improve selection contrast inside code blocks */
+.chroma ::selection { background: #ffd; color: #111; }

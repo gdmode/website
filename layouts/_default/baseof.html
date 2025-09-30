@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Site.Title }}</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/highlight-gdscript-light.css">
+  <script src="/js/faq.js" defer></script>
+  <script src="/js/utils.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="/" class="navbar-logo">GDMode</a>
+      <div class="navbar-links">
+        <a href="#features">Featureta</a>
+        <a href="#how-it-works">Quomodo Agitur</a>
+        <a href="#community">Communitas</a>
+        <a href="#faq">Quaestiones</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="notice-bar">
+    GDMode is MK Ultra Experimental, Expect No API Stability Till 1.x !
+  </div>
+
+  <div class="hero">
+    {{ partial "hero.html" . }}
+  </div>
+  <div class="homepage-content-container">
+    {{ block "main" . }}
+    {{ end }}
+  </div>
+  <div class="footer">
+    {{ partial "footer.html" . }}
+  </div>
+</body>
+</html>

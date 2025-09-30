@@ -1,0 +1,10 @@
+baseURL = '/'
+languageCode = 'en-us'
+title = 'GDMode'
+
+publishDir = "../gdmode.github.io"
+
+[markup]
+	[markup.highlight]
+		noClasses = false
+		style = "monokai"

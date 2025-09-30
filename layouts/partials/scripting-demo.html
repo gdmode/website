@@ -1,0 +1,128 @@
+<section class="scripting-demo">
+  <h2>Exemplum Scripturae</h2>
+  <div class="script-code">
+    <div class="script-tabs" role="tablist" aria-label="Script examples">
+      <button class="script-tab" role="tab" aria-selected="true" data-target="example-1">Example 1</button>
+      <button class="script-tab" role="tab" aria-selected="false" data-target="example-2">Example 2</button>
+      <button class="script-tab" role="tab" aria-selected="false" data-target="example-3">Example 3</button>
+    </div>
+
+    <div class="script-examples">
+      <div id="example-1" class="script-example" role="tabpanel">
+        <div class="script-pane">
+          {{ $code := `# Spawn a physics prop at the player's aim (GMod-style)
+func spawn_prop_at_camera():
+    var cam = $Camera
+    var origin = cam.global_transform.origin
+    var forward = -cam.global_transform.basis.z
+    var spawn_pos = origin + forward * 5
+
+    var prop = RigidBody3D.new()
+    var mesh = MeshInstance3D.new()
+    mesh.mesh = CubeMesh.new()
+    prop.add_child(mesh)
+    prop.global_transform.origin = spawn_pos
+    get_tree().current_scene.add_child(prop)
+
+    # give it a little upward impulse so it pops into the world
+    prop.apply_impulse(Vector3.ZERO, Vector3(0, 200, 0))` }}
+          {{ highlight $code "gdscript" "linenos=table" | safeHTML }}
+        </div>
+        <div class="script-expl-wrapper">
+          <div class="script-expl">
+            <h3>Spawn Prop</h3>
+            <p>This example demonstrates spawning a simple physics prop in front of the camera, similar to spawning props in Garry's Mod. The prop is given a small upward impulse so it appears to pop into the world.</p>
+            <ul>
+              <li><strong>Where:</strong> call from a player controller or tool.</li>
+              <li><strong>Why:</strong> illustrates creating physics objects and initial impulses.</li>
+            </ul>
+          </div>
+          <div class="script-wasm">
+            <div class="wasm-placeholder">
+              <h3>WASM Loader</h3>
+              <p>Placeholder for a WebAssembly loader (e.g., run physics utility or demo module).</p>
+              <button class="cta-btn" disabled>Load WASM</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="example-2" class="script-example" role="tabpanel" hidden>
+        <div class="script-pane">
+          {{ $code2 := `# Hitscan 'weapon' that pushes physics props on hit
+func fire_hitscan():
+    var cam = $Camera
+    var from = cam.global_transform.origin
+    var to = from + (-cam.global_transform.basis.z) * 1000
+    var space = get_world_3d().direct_space_state
+    var res = space.intersect_ray(from, to, [self],  true, true)
+    if res:
+        var body = res.collider
+        if body and body is RigidBody3D:
+            # apply impulse away from the hit point
+            var dir = (body.global_transform.origin - res.position).normalized()
+            body.apply_impulse(res.position - body.global_transform.origin, dir * 800)
+        else:
+            print("Hit: ", res.collider)` }}
+          {{ highlight $code2 "gdscript" "linenos=table" | safeHTML }}
+        </div>
+        <div class="script-expl-wrapper">
+          <div class="script-expl">
+            <h3>Hitscan Push</h3>
+            <p>A hitscan-style interaction that pushes physics props when hit. This mimics weapons that apply force on impact — useful for knockback effects or physics-based tools.</p>
+            <ul>
+              <li><strong>Notes:</strong> uses ray intersection to detect the hit and applies an impulse at the contact point.</li>
+              <li><strong>Tip:</strong> tune the impulse scalar for stronger or subtler pushes.</li>
+            </ul>
+          </div>
+          <div class="script-wasm">
+            <div class="wasm-placeholder">
+              <h3>WASM Loader</h3>
+              <p>Placeholder for a WebAssembly loader (e.g., run physics utility or demo module).</p>
+              <button class="cta-btn" disabled>Load WASM</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="example-3" class="script-example" role="tabpanel" hidden>
+        <div class="script-pane">
+          {{ $code3 := `# Timed explosion that nudges nearby physics props
+func _ready():
+    var t = Timer.new()
+    t.wait_time = 3.0
+    t.one_shot = true
+    add_child(t)
+    t.connect("timeout", Callable(self, "_on_explode"))
+    t.start()
+
+func _on_explode():
+    var bodies = get_tree().get_nodes_in_group("destructible")
+    for b in bodies:
+        if b and b is RigidBody3D:
+            var dir = (b.global_transform.origin - global_transform.origin).normalized()
+            b.apply_impulse(Vector3.ZERO, dir * (200 + randi() % 400))
+    print("Boom!")` }}
+          {{ highlight $code3 "gdscript" "linenos=table" | safeHTML }}
+        </div>
+        <div class="script-expl-wrapper">
+          <div class="script-expl">
+            <h3>Timed Explosion</h3>
+            <p>Triggers an explosion after a delay and applies impulses to nearby physics objects. This pattern is useful for grenades, timed traps, or scripted environmental events.</p>
+            <ul>
+              <li><strong>Grouping:</strong> uses a node group <code>destructible</code> to target affected bodies.</li>
+              <li><strong>Variation:</strong> randomizes impulse magnitude for a more organic effect.</li>
+            </ul>
+          </div>
+          <div class="script-wasm">
+            <div class="wasm-placeholder">
+              <h3>WASM Loader</h3>
+              <p>Placeholder for a WebAssembly loader (e.g., run physics utility or demo module).</p>
+              <button class="cta-btn" disabled>Load WASM</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,1071 @@
+body {
+  background: #fff;
+  color: #3f3e40;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  padding-top: 100px; /* Increased to include notice bar height */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffc229;
+  color: #3f3e40;
+  z-index: 1600; /* Ensure it is above other elements */
+  box-shadow: 0 2px 8px rgba(71,140,191,0.07);
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+.navbar-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+}
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #3f3e40;
+  text-decoration: none;
+  letter-spacing: -1px;
+}
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+.navbar-links a {
+  color: #3f3e40;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.08rem;
+  transition: color 0.2s;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+}
+.navbar-links a:hover {
+  background: #ffe07a;
+  color: #2d2c2e;
+}
+
+@media (max-width: 700px) {
+  .navbar-content {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 0 1rem;
+  }
+  .navbar-links {
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+}
+
+.hero {
+  background: linear-gradient(120deg, #478cbf 60%, #ffc229 100%);
+  color: #fff;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 60px 0 #478cbf55, 0 0 120px 0 #ffc22933;
+  animation: hero-bg-move 8s ease-in-out infinite alternate;
+  z-index: 1400; /* Below notice bar */
+  min-height: 55vh; /* Reduce height to 55% of the viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure script code highlights are visible */
+.hero .subtitle {
+  font-size: 1.5rem;
+  color: #eaf6ff;
+  margin-bottom: 2rem;
+}
+
+@keyframes hero-bg-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  text-shadow: 0 4px 32px #478cbf88, 0 1px 0 #fff;
+}
+
+.gdmode-gradient {
+  background: linear-gradient(90deg, #ffc229 10%, #478cbf 90%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  filter: brightness(1.2) drop-shadow(0 0 16px #ffc22988);
+  animation: gradient-move 2.5s linear infinite alternate;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.hero-media {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+.hero-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(71,140,191,0.13);
+  object-fit: contain;
+  animation: float 3s ease-in-out infinite alternate;
+}
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-18px); }
+}
+.cta-hero {
+  font-size: 1.3rem;
+  padding: 1.1rem 2.8rem;
+  margin-top: 1.2rem;
+  box-shadow: 0 4px 18px rgba(255,194,41,0.13);
+}
+
+.section-divider {
+  width: 100%;
+  height: 32px;
+  background: linear-gradient(90deg, #478cbf 0%, #ffc229 100%);
+  opacity: 0.13;
+  margin: 0 0 2.5rem 0;
+  border-radius: 0 0 2rem 2rem;
+}
+
+.media-grid {
+  background: #fff;
+  padding: 3rem 1rem 3.5rem 1rem;
+  text-align: center;
+}
+.media-grid h2 {
+  color: #478cbf;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+.media-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+}
+.media-item {
+  background: #f7fafc;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 12px rgba(71,140,191,0.07);
+  padding: 1.2rem 1.2rem 0.7rem 1.2rem;
+  max-width: 220px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.media-item img {
+  width: 120px;
+  height: 120px;
+  border-radius: 1rem;
+  margin-bottom: 0.7rem;
+  object-fit: cover;
+  box-shadow: 0 1px 8px rgba(71,140,191,0.10);
+}
+.media-item span {
+  color: #3f3e40;
+  font-size: 1.08rem;
+  margin-top: 0.2rem;
+  font-weight: 600;
+}
+
+.testimonials {
+  background: #f7fafc;
+  padding: 3.5rem 1rem 3.5rem 1rem;
+  text-align: center;
+}
+.testimonials h2 {
+  color: #478cbf;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+.testimonial-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.testimonial {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 12px rgba(71,140,191,0.07);
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  max-width: 340px;
+  text-align: left;
+  color: #3f3e40;
+  font-size: 1.08rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.testimonial-author {
+  color: #478cbf;
+  font-weight: 700;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .media-items, .testimonial-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.hero-content .subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #eaf6ff;
+}
+
+.cta-btn {
+  background: #ffc229; /* Uniform yellow color */
+  color: #3f3e40;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 16px #ffc22955, 0 0 0 #478cbf00;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  animation: cta-pulse 2.5s infinite alternate;
+}
+@keyframes cta-pulse {
+  0% { box-shadow: 0 2px 16px #ffc22955, 0 0 0 #478cbf00; }
+  100% { box-shadow: 0 4px 32px #ffc22988, 0 0 24px #478cbf55; }
+}
+
+.cta-btn:hover {
+  background: #fff !important;
+  color: #2d2c2e !important;
+  box-shadow: 0 4px 32px #ffc22988, 0 0 24px #478cbf55;
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  background: #f7fafc;
+  padding: 4rem 1rem;
+}
+
+.feature {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 12px rgba(71,140,191,0.07);
+  padding: 2rem 2rem 1.5rem 2rem;
+  max-width: 340px;
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.feature h2 {
+  color: #478cbf;
+  margin-bottom: 0.7rem;
+  font-size: 1.5rem;
+}
+
+.feature p {
+  color: #3f3e40;
+  font-size: 1.05rem;
+}
+
+.teaser {
+  background: #fffbe6;
+  color: #3f3e40;
+  text-align: center;
+  padding: 3rem 1rem 3.5rem 1rem;
+  font-size: 1.3rem;
+  border-top: 2px solid #ffc229;
+  width: 100vw; /* Full viewport width */
+  margin: 0;
+}
+
+/* Ensure teaser section spans full width */
+.teaser {
+  width: 100%;
+  margin: 0;
+  padding: 3rem 1rem;
+  background: #fffbe6; /* Note yellow background */
+  text-align: center;
+}
+
+.how-it-works {
+  background: #f7fafc;
+  padding: 3rem 1rem 2.5rem 1rem;
+  text-align: center;
+}
+.how-it-works h2 {
+  color: #478cbf;
+  margin-bottom: 1.2rem;
+}
+.how-it-works ol {
+  display: inline-block;
+  text-align: left;
+  color: #3f3e40;
+  font-size: 1.1rem;
+  margin: 0 auto;
+  padding-left: 1.2em;
+}
+
+.scripting-demo {
+  background: #fff;
+  padding: 2.5rem 1rem;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.scripting-demo h2 {
+  color: #478cbf;
+  margin-bottom: 1rem;
+  grid-column: 1 / -1; /* title spans both columns */
+  text-align: center;
+}
+
+/* Match other section headings */
+.scripting-demo h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.scripting-demo pre {
+  background: #f7fafc;
+  color: #3f3e40;
+  border-radius: 1rem;
+  padding: 1.2rem 1rem;
+  font-size: 1.05rem;
+  overflow: auto;
+  margin: 0;
+  max-width: none;
+  height: 36vh; /* occupy a smaller portion of the viewport vertically */
+}
+.script-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.script-tab {
+  background: transparent;
+  border: 1px solid rgba(71,140,191,0.12);
+  color: #478cbf;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.script-tab[aria-selected="true"] {
+  background: #478cbf;
+  color: #fff;
+  border-color: #478cbf;
+}
+.script-pane { display: block; }
+.script-examples { display: grid; gap: 1.25rem; }
+.script-code { grid-column: 1 / -1; }
+.script-example {
+  /* Allow examples to grow with their content so zooming doesn't cause overlap */
+  display: grid;
+  grid-template-rows: auto auto; /* code area then explanation area */
+  gap: 0.75rem;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+/* Do not force fixed heights on examples; let them expand naturally */
+.script-examples > .script-example { min-height: 0; }
+/* Keep children flexible instead of forcing full height */
+.script-example > * { box-sizing: border-box; }
+.script-expl-wrapper > * { box-sizing: border-box; }
+.script-pane { grid-row: 1 / 2; background: transparent; min-width: 0; }
+.script-expl-wrapper { grid-row: 2 / 3; display: grid; grid-template-columns: 3fr 1fr; gap: 1rem; align-items: stretch; }
+.script-expl { grid-column: 1 / 2; color: #3f3e40; background: transparent; padding: 0.75rem; border-radius: 8px; height: 100%; overflow: auto; min-width: 0; }
+.script-wasm { grid-column: 2 / 3; height: 100%; min-width: 0; }
+.wasm-placeholder { background: #f7fafc; padding: 1rem; border-radius: 8px; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+
+/* Make code panes fixed and scrollable so all examples match size.
+   Only the innermost <pre> should be the scroll container to avoid nested
+   scrollbars (some Chroma variants wrap code in .chroma/.highlight). */
+.script-pane .highlight,
+.script-pane .chroma {
+  /* allow the nested <pre> to handle scrolling */
+  height: 100% !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+.script-pane pre {
+  /* the scrollable pane for code: limit height so the example can still expand
+     (keeps code readable but lets explanation grow when zoomed) */
+  height: auto !important;
+  max-height: 36vh;
+  overflow: auto !important;
+}
+
+/* Indentation guide lines for scripting examples.
+   Toggle by adding the class `show-indent-guides` onto the `.scripting-demo` container.
+   Guides are drawn every 4ch (approx. one tab) and are intentionally faint so they
+   don't compete with syntax colors. */
+.scripting-demo.show-indent-guides .script-pane pre,
+.scripting-demo.show-indent-guides .script-pane .chroma,
+.scripting-demo.show-indent-guides .script-pane .highlight {
+  /* Draw vertical lines at fixed character intervals (4ch) */
+  background-image: linear-gradient(to right, rgba(71,140,191,0.08) 1px, transparent 1px);
+  background-size: 4ch 100%;
+  background-repeat: repeat-y;
+  /* Keep the guide under token backgrounds */
+  background-origin: padding-box;
+}
+
+.scripting-demo.show-indent-guides .script-pane pre code {
+  background: transparent !important; /* ensure token backgrounds don't hide guides */
+}
+
+/* Use a monospace stack inside code panes so ch units align predictably */
+.script-pane pre, .script-pane code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Source Code Pro", monospace;
+  font-variant-ligatures: none;
+}
+
+/* Persistent horizontal scrollbar track under code panes */
+.code-scrollbar {
+  height: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+}
+.code-scrollbar .scrollbar-inner {
+  height: 1px; /* minimal visible inner element to set scroll width */
+  width: 100%;
+}
+.code-scrollbar::-webkit-scrollbar { height: 12px; }
+.code-scrollbar::-webkit-scrollbar-thumb { background: rgba(71,140,191,0.28); border-radius: 6px; }
+
+/* prevent the inner code from being hidden under the scrollbar */
+.script-pane { padding-bottom: 18px; box-sizing: border-box; }
+
+/* Keep the WASM placeholder content centered vertically */
+.wasm-placeholder .cta-btn { margin-top: 0.75rem; }
+.script-expl h3 { color: #478cbf; margin-top: 0; }
+.script-expl p { margin-top: 0.25rem; }
+.script-expl ul { margin-top: 0.5rem; }
+.script-example[hidden] { display: none; }
+.script-code .highlight { max-height: 36vh; overflow: auto; }
+.script-pane[hidden] { display: none; }
+.script-code .highlight { height: 100%; }
+.script-code .chroma { height: 100%; }
+.script-code .chroma pre { height: 100%; }
+.script-desc {
+  color: #3f3e40;
+  font-size: 1rem;
+  grid-column: 2 / 3; /* right column */
+  align-self: center;
+}
+
+@media (max-width: 900px) {
+  .scripting-demo {
+    display: block;
+    padding: 2rem 1rem;
+    width: 95%;
+  }
+  .scripting-demo h2 {
+    text-align: left;
+  }
+  .scripting-demo pre {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  .script-example { grid-template-columns: 1fr; height: auto; }
+  .script-left { grid-template-rows: auto; }
+  .script-pane { grid-row: auto; height: auto; }
+  .script-expl { grid-row: auto; height: auto; }
+  .script-wasm { display: none; }
+  .script-desc {
+    margin-top: 0.75rem;
+  }
+}
+
+.community {
+  background: #eaf6ff;
+  padding: 3rem 1rem 3rem 1rem;
+  text-align: center;
+}
+.community h2 {
+  color: #478cbf;
+  margin-bottom: 1rem;
+}
+.community p {
+  color: #3f3e40;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Styles for Partners & Sponsors section */
+.partners-sponsors {
+  background: #f7fafc;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.partners-sponsors h2 {
+  color: #478cbf;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+.partners-sponsors p {
+  color: #3f3e40;
+  font-size: 1.1rem;
+}
+
+/* Arrange logo placeholders in a grid with 5 per line */
+.partners-sponsors .partners-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.partners-sponsors .partner-logo-placeholder {
+  flex: 1 1 calc(20% - 1rem); /* 5 per row with spacing */
+  max-width: 120px;
+  height: 60px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 0.8rem;
+}
+
+/* Styles for Community Spotlight section */
+.community-spotlight {
+  background: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.community-spotlight h2 {
+  color: #ffc229;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+.community-spotlight p {
+  color: #3f3e40;
+  font-size: 1.1rem;
+}
+
+/* Placeholder styles for Community Spotlight */
+.community-spotlight .spotlight-image-placeholder {
+  width: 150px;
+  height: 150px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0 auto 1rem;
+}
+
+/* Placeholder styles for Partners & Sponsors */
+.partners-sponsors .partner-logo-placeholder {
+  width: 120px;
+  height: 60px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 0.8rem;
+  margin: 0.5rem;
+}
+
+.faq {
+  background: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.faq h2 {
+  color: #478cbf;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+.faq-item {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 1rem;
+}
+.faq-question {
+  background: none;
+  border: none;
+  color: #478cbf;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  position: relative;
+}
+.faq-question::after {
+  content: '\25B6'; /* Right-pointing arrow */
+  position: absolute;
+  right: 0;
+  font-size: 1rem;
+  transition: transform 0.2s;
+}
+.faq-item.open .faq-question::after {
+  transform: rotate(90deg); /* Downward-pointing arrow */
+}
+.faq-answer {
+  display: none;
+  color: #3f3e40;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+.footer {
+  margin-top: auto;
+  background: #478cbf;
+  color: #fff;
+  width: 100%; /* Make footer span the full page width */
+  margin-left: 0;
+  margin-right: 0;
+  border-top-left-radius: 0; /* Remove rounded edges */
+  border-top-right-radius: 0; /* Remove rounded edges */
+  padding: 2rem 1rem; /* reasonable padding */
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  align-items: center; /* horizontal centering */
+  text-align: center;
+}
+
+/* Add styles for the notice bar */
+.notice-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  z-index: 1200; /* Ensure it is above the navbar */
+}
+
+/* Ensure the notice bar text is visible */
+.notice-bar {
+  background-color: #fff; /* White background for contrast */
+  color: #000; /* Black text for visibility */
+  text-align: center; /* Center the text */
+  padding: 10px; /* Add padding for better readability */
+}
+
+/* Center the text in the notice bar */
+.notice-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Move the notice bar further down */
+.notice-bar {
+  margin-top: 64px; /* Ensure it is below the navbar */
+}
+
+@media (max-width: 900px) {
+  .faq-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Apply meaningful font weights */
+h1, .hero-title {
+  font-weight: 700; /* Bold for main titles */
+}
+h2, .feature h2, .teaser h2 {
+  font-weight: 600; /* Semi-bold for section titles */
+}
+body, p, .subtitle, .feature p {
+  font-weight: 400; /* Regular for body text */
+}
+.navbar-logo, .cta-btn {
+  font-weight: 600; /* Semi-bold for emphasis */
+}
+
+/* Styles for Partners & Sponsors tiers */
+.partners-sponsors .partners-tier {
+  margin-bottom: 2rem;
+}
+.partners-sponsors .partners-tier h3 {
+  color: #478cbf; /* Blue for sponsor titles */
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Styles for Roadmap section */
+.roadmap {
+  background: #f7fafc;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.roadmap h2 {
+  color: #478cbf;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+.roadmap .timeline {
+  position: relative;
+  margin: 2rem auto;
+  padding: 1rem 0;
+  max-width: 800px;
+}
+.roadmap .timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: #478cbf;
+}
+.roadmap .timeline-item {
+  position: relative;
+  margin: 2rem 0;
+  text-align: center;
+}
+.roadmap .timeline-item .timeline-date {
+  font-weight: bold;
+  color: #478cbf; /* dates should be blue */
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+.roadmap .timeline-item .timeline-content {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Styles for Changelog section */
+.changelog {
+  background: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.changelog h2 {
+  color: #478cbf; /* make section title blue */
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+.changelog .current-version {
+  margin: 2rem auto;
+  width: 85%;
+  max-width: 880px; /* constrain card width on wide screens */
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.changelog .current-version h3 {
+  color: #478cbf; /* make version heading blue */
+  margin-bottom: 1rem;
+  font-size: 2rem !important; /* match other section titles */
+}
+.changelog .current-version ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items vertically */
+  gap: 0.5rem; /* Add spacing between list items */
+}
+.changelog .current-version li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center; /* Vertically align tag and text */
+  gap: 0.5rem; /* Add spacing between tag and description */
+}
+.changelog .current-version .tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.28rem 0.7rem; /* Slightly larger horizontal padding for balance */
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #fff;
+  text-transform: uppercase;
+  width: auto; /* Let tag size itself to content */
+  min-width: 64px; /* Ensure very short labels still feel balanced */
+  text-align: center; /* Center-align text within the tag */
+}
+.changelog .current-version .tag.feature {
+  background: #478cbf;
+}
+.changelog .current-version .tag.bugfix {
+  background: #e53e3e;
+}
+.changelog .current-version .tag.improvement {
+  background: #38a169;
+}
+
+/* Styles for News section */
+.news {
+  background: #f9f9f9;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.news h2 {
+  color: #ffc229; /* News title should be gold */
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.news-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+.news-item h3 {
+  color: #478cbf;
+  margin-bottom: 1rem;
+}
+.news-item p {
+  color: #3f3e40;
+  margin-bottom: 1rem;
+}
+.news-item .read-more {
+  background: #478cbf;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.6rem;
+  display: inline-block;
+  transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 0 2px 10px rgba(71,140,191,0.12);
+}
+.news-item .read-more:hover {
+  background: #3a78a8;
+  transform: translateY(-2px);
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(71,140,191,0.18);
+}
+
+/* Constrain inner news container to a smaller centered column */
+.news > div,
+.news-page > div {
+  width: 70%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Styles for News page */
+.news-page {
+  background: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.news-page h1 {
+  color: #478cbf;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.news-list .news-item {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+.news-list .news-item h2 {
+  color: #478cbf;
+  margin-bottom: 1rem;
+}
+.news-list .news-item p {
+  color: #3f3e40;
+  margin-bottom: 1rem;
+}
+.news-list .news-item .read-more {
+  background: #478cbf;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.6rem;
+  display: inline-block;
+  transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 0 2px 10px rgba(71,140,191,0.12);
+}
+.news-list .news-item .read-more:hover {
+  background: #3a78a8;
+  transform: translateY(-2px);
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(71,140,191,0.18);
+}
+
+/* Reusable 95% wide container with adjusted blue background */
+.homepage-content-container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1400px;
+  background-color: transparent; /* remove light-blue gap on sides */
+}
+
+/* Ensure hero and footer sections are full width */
+.hero, .footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix white gap below footer */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#main-content {
+  flex: 1;
+}
+
+/* Style for social links in the footer */
+.footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+.footer .social-links a {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.footer .social-links a:hover {
+  transform: translateY(-5px);
+  color: #ffd966;
+}
+
+/* Footer text link styling: default white, no underline; hover gold and underlined */
+.footer p a,
+.footer a.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.footer p a:hover,
+.footer a.footer-link:hover {
+  color: #ffc229;
+  text-decoration: underline;
+}
+
+/* Partial heading color scheme: primary (top) titles gold, secondary titles blue */
+section > h2,
+.homepage-content-container section > h2 {
+  color: #ffc229; /* gold */
+}
+section h3,
+.homepage-content-container section h3 {
+  color: #478cbf; /* blue */
+}
+
+/* Override: Community section title should be blue */
+.community h2 {
+  color: #478cbf;
+}
+
+/* Teaser heading should be black */
+.teaser h2 {
+  color: #000000;
+}
